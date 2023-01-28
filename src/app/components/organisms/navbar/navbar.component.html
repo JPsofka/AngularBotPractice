@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Poke cards</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="products" class="nav-link" style="cursor: pointer;">Cards</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="create" class="nav-link" style="cursor: pointer;">Profile</a>
+        </li>
+        <li class="nav-item">
+          <app-send-info-box [title]="title" [type]="type" [class]="class" [placeholder]="placeholder"
+             [typeButtonSend]="typeButtonSend" [classButtonSend]="classButtonSend" [nameButtonSend]="nameButtonSend" 
+             [typeButtonCancel]="typeButtonCancel" [classButtonCancel]="classButtonCancel" [nameButtonCancel]="nameButtonCancel"
+             >
+          </app-send-info-box>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>

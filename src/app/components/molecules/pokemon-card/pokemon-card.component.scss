@@ -1,0 +1,36 @@
+.cardp{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+.cardp{
+    font-size: small;
+}
+.divImg{
+    display: block;
+}
+
+.more-info{
+    display: none;
+}
+#add{
+    display: none;
+}
+.cardp:hover{
+    .divImg{
+        display: none;
+    }
+    .info{
+        display: none;
+    }
+    .more-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #add{
+        display: block;
+    }
+}
+

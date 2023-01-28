@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from '../organisms/navbar/navbar.component';
+import { ButtonComponent } from './button/button.component';
+import { InputComponent } from './input/input.component';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    ButtonComponent,
+    InputComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    NavbarComponent
+    ButtonComponent,
+    InputComponent
   ]
 })
 export class AtomsModule { }

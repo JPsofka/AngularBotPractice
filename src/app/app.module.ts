@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { PagesModule } from './pages/pages.module';
+import { MoleculesModule } from './components/molecules/molecules.module';
+import { OrganismsModule } from './components/organisms/organisms.module';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { PagesModule } from './pages/pages.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    MoleculesModule,
+    OrganismsModule,
     PagesModule
   ],
   providers: [],

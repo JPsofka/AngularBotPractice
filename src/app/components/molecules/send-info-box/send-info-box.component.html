@@ -1,0 +1,22 @@
+<a data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link" data-bs-whatever="@mdo" style="cursor:pointer">Deposit</a>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <app-input [type]="type" [class]="class" [placeholder]="placeholder"></app-input>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <app-button [typeButton]="typeButtonSend" [classButton]="classButtonSend" [nameButton]="nameButtonSend"></app-button>
+        <app-button [typeButton]="typeButtonCancel" [classButton]="classButtonCancel" [nameButton]="nameButtonCancel" data-bs-dismiss="modal"></app-button>
+      </div>
+    </div>
+  </div>
+</div>
