@@ -1,7 +1,12 @@
+<div class="container-fluid py-5">
+    <div class="search">
+        <app-input [type]="typeInput" [class]="classInput" [placeholder]="placeholderInput"></app-input>
+    </div>
 <div class="container-cards">
     <app-pokemon-card *ngFor="let pokemon of pokemonList" [srcImg]="pokemon.image" 
     [altImg]="pokemon.name" [cardTitle]="pokemon.name" [typeButtonBuy]="typeButtonBuy" [classButtonBuy]="classButtonBuy"
     [nameButtonBuy]="nameButtonBuy" [name]="pokemon.name" [height]="pokemon.height" [weight]="pokemon.weight"
     [price]="pokemon.price" [abilities]="pokemon.abilities" [quantity]="pokemon.quantity"
     ></app-pokemon-card>
+</div>
 </div>

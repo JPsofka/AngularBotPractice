@@ -12,6 +12,9 @@ export class PokemonsPageComponent implements OnInit {
   typeButtonBuy:string="button"
   classButtonBuy:string="btn btn-primary"
   nameButtonBuy:string="Buy"
+  typeInput:string="text"
+  classInput:string="form-control"
+  placeholderInput:string="Search a pokemon"
   pokemonList:Pokemon[]=[]
   
   constructor(private pokemonService: PokemonService) { }
