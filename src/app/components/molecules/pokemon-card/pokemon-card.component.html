@@ -11,7 +11,7 @@
       <div class="more-info">
       <p class="card-text text-light">Height: {{height}}</p>
       <p class="card-text text-light">Weight: {{weight}}</p>
-      <p *ngFor="let ability of abilities let index" class="card-text text-light">Abilities:{{ability}}</p>
+      <p class="card-text text-light">Abilities: <span *ngFor="let ability of abilities let index" >{{ability}}  </span></p>
       <app-button id="add" [typeButton]="typeButtonBuy" [classButton]="classButtonBuy" [nameButton]="nameButtonBuy"></app-button>
       </div>
       
