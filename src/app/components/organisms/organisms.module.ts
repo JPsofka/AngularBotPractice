@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MoleculesModule } from '../molecules/molecules.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { MoleculesModule } from '../molecules/molecules.module';
   ],
   imports: [
     CommonModule,
-    MoleculesModule
+    MoleculesModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent
