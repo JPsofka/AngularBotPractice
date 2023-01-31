@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -17,9 +17,22 @@ export class NavbarComponent implements OnInit {
   typeButtonCancel:string="button"
   classButtonCancel:string="btn btn-secondary"
   nameButtonCancel:string="Cancel"
-  constructor() { }
+  @Output()
+  event = new EventEmitter<string>()
+  @Output()
+  eventLogout = new EventEmitter<string>()
+  @Input()
+  login:boolean=false
 
   ngOnInit(): void {
   }
+  account(){
+    this.event.emit("clic")
+  }
+
+  logout(){
+    this.eventLogout.emit("clic")
+  }
+    
 
 }

@@ -1,4 +1,5 @@
 <div class="container-fluid py-5">
+    <app-info-user-box [class.hide]="!login" [src]="photoURL" [messageInfoUserName]="messageInfoUserName" [messageInfoUserCash]="messageInfoUserCash  "></app-info-user-box>
     <div class="search">
         <app-input [type]="typeInput" [class]="classInput" [placeholder]="placeholderInput" name="term" ngDefaultControl [(ngModel)]="term"></app-input>
     </div>

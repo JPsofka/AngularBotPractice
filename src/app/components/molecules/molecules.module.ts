@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { SendInfoBoxComponent } from './send-info-box/send-info-box.component';
 import { AtomsModule } from '../atoms/atoms.module';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { InfoUserBoxComponent } from './info-user-box/info-user-box.component';
 
 
 
 @NgModule({
   declarations: [
     SendInfoBoxComponent,
-    PokemonCardComponent
+    PokemonCardComponent,
+    InfoUserBoxComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
   ],
   exports: [
     SendInfoBoxComponent,
-    PokemonCardComponent
+    PokemonCardComponent,
+    InfoUserBoxComponent
   ]
 })
 export class MoleculesModule { }

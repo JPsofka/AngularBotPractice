@@ -4,13 +4,17 @@ import { NavbarComponent } from '../organisms/navbar/navbar.component';
 import { ButtonComponent } from './button/button.component';
 import { InputComponent } from './input/input.component';
 import { FormsModule } from '@angular/forms';
+import { AvatarComponent } from './avatar/avatar.component';
+import { MessageComponent } from './message/message.component';
 
 
 
 @NgModule({
   declarations: [
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    AvatarComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +22,9 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    AvatarComponent,
+    MessageComponent
   ]
 })
 export class AtomsModule { }

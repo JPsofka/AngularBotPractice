@@ -8,6 +8,12 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <li class="nav-item">
+          <a class="nav-link" [class.hide]="login" style="cursor: pointer;" (click)="account()">login</a>
+        </li>
+        <li class="nav-item"[class.hide]="!login">
+          <a class="nav-link text-danger" style="cursor: pointer;" (click)="logout()">Logout</a>
+        </li>
+        <li class="nav-item">
           <a routerLink="products" class="nav-link" style="cursor: pointer;">Cards</a>
         </li>
         <li class="nav-item">

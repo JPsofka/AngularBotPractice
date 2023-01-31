@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
-<app-pokemons-page></app-pokemons-page>
+<app-navbar (event)="account()" [login]="login" (eventLogout)="logout()"></app-navbar>
+<app-pokemons-page [login]="login" [currentUser]="currentUser"></app-pokemons-page>
