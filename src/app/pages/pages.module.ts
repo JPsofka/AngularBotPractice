@@ -6,12 +6,14 @@ import { OrganismsModule } from '../components/organisms/organisms.module';
 import { MoleculesModule } from '../components/molecules/molecules.module';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 
 @NgModule({
   declarations: [
-    PokemonsPageComponent
+    PokemonsPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MoleculesModule
   ],
   exports: [
-    PokemonsPageComponent
+    PokemonsPageComponent,
+    ProfilePageComponent
   ]
 })
 export class PagesModule { }

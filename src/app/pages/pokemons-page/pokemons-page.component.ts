@@ -1,17 +1,19 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { User } from 'src/app/interfaces/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-pokemons-page',
   templateUrl: './pokemons-page.component.html',
   styleUrls: ['./pokemons-page.component.scss']
 })
-export class PokemonsPageComponent implements OnInit, OnChanges{
+export class PokemonsPageComponent implements OnInit{
 
-  typeButtonBuy:string="button"
+  typeButtonBuy:string="submit"
   classButtonBuy:string="btn btn-primary"
   nameButtonBuy:string="Buy"
   typeInput:string="text"
@@ -20,29 +22,32 @@ export class PokemonsPageComponent implements OnInit, OnChanges{
   pokemonList:Pokemon[]=[]
   term:string=""
   srcDefault:string="https://t3.ftcdn.net/jpg/01/18/01/98/360_F_118019822_6CKXP6rXmVhDOzbXZlLqEM2ya4HhYzSV.jpg"
-  @Input()
   currentUser:User={uid:"",email:"",displayName:"", photoURL:"",cash:0,pokemons:[]}
-  @Input()
-  login!:boolean
+  login:boolean = false
   photoURL:string=""
   displayName:string=""
   messageInfoUserName:string=""
   messageInfoUserCash:string=""
   cash:number=0
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private aus:AuthenticationService, private userService:UserService) { }
 
   ngOnInit(): void {
     this.pokemonService.getAll().subscribe((data:Pokemon[])=> this.pokemonList=data)
+    this.aus.user.subscribe((data)=>{
+      if (data !== undefined && data!== null) {
+        this.currentUser = data
+        this.login = true
+        this.messageInfoUserName = this.currentUser.displayName!
+        this.messageInfoUserCash = `Cash: ${this.currentUser.cash.toString()}`
+      }
+      if (data === undefined || data=== null) {
+        this.login = false
+      }
+    })
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.currentUser.displayName !== null && this.currentUser.displayName !== undefined && this.currentUser.photoURL !== null && this.currentUser.photoURL !== undefined) {
-      this.photoURL = this.currentUser.photoURL
-      this.displayName=this.currentUser.displayName
-      this.cash = this.currentUser.cash
-      this.messageInfoUserName=` ${this.currentUser.displayName}`
-      this.messageInfoUserCash=` Cash: ${this.cash}`
-    }
-  }
+  
+
+  
 
 }

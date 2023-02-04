@@ -30,24 +30,25 @@ export class AuthenticationService {
     const provider = new firebase.default.auth.GoogleAuthProvider();
     const credential = await this.angularFireAuth.signInWithPopup(provider);
     
-    if (credential.user !== null) {
-      // let user = this.userService.get(credential.user.uid).subscribe((data)=>data)
-      // if (condition) {
-        
-      // }
-      let userToSave: User = {
-        uid: credential.user.uid,
-        email: credential.user.email,
-        displayName: credential.user.displayName,
-        photoURL: credential.user.photoURL,
-        cash: 0
+    if (credential.user !== null && credential.user.email && credential.user.photoURL 
+      && credential.user.displayName) {
+        let exist = this.userService.get(credential.user?.uid)
+      if (!exist) {
+        let userToSave: User = {
+          uid: credential.user.uid,
+          email: credential.user.email,
+          displayName: credential.user.displayName,
+          photoURL: credential.user.photoURL,
+          cash: 0,
+        }
+        this.userService.save(userToSave)
       }
-      this.userService.save(userToSave)
     }
   }
 
   async signOut() {
     await this.angularFireAuth.signOut();
+    this.user.subscribe().unsubscribe()
     this.router.navigate(['/']);
   }
 

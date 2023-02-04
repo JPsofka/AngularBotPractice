@@ -13,7 +13,6 @@ export class AppComponent {
   title = 'shopping-cards';
   login = false
   currentUser!:User
-  currentUserEmpty:User={uid:"",email:"",displayName:"", photoURL:"",cash:0,pokemons:[]}
 
   constructor(private aus:AuthenticationService, private userService:UserService){}
   
@@ -31,5 +30,11 @@ export class AppComponent {
 
   logout(){
     this.aus.signOut().then(()=>this.login =false)
+  }
+
+  deposit(amount:string){
+    let amountToDeposit:number = +amount
+    this.currentUser.cash = amountToDeposit
+    // this.userService.updateUser(this.currentUser.uid, this.currentUser)
   }
 }

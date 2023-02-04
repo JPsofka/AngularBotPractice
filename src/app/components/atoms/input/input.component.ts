@@ -13,11 +13,12 @@ export class InputComponent implements OnInit {
   class:string=""
   @Input()
   placeholder:string=""
-
+  value:string=""
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.value)
   }
 
 }

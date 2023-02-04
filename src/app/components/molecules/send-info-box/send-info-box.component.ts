@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { InputComponent } from '../../atoms/input/input.component';
 
 @Component({
   selector: 'app-send-info-box',
@@ -31,9 +32,15 @@ export class SendInfoBoxComponent implements OnInit {
   classButtonCancel:string=""
   @Input()
   nameButtonCancel:string=""
+  @Output()
+  event = new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendInfo(newItem:string){
+    this.event.emit(newItem)
   }
 
 }

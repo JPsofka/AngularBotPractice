@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Poke cards</a>
+    <a class="navbar-brand" [routerLink]="['']">Poke cards</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,16 +14,13 @@
           <a class="nav-link text-danger" style="cursor: pointer;" (click)="logout()">Logout</a>
         </li>
         <li class="nav-item">
-          <a routerLink="products" class="nav-link" style="cursor: pointer;">Cards</a>
+          <a [routerLink]="['profile']" routerLinkActive="router-link-active" class="nav-link" style="cursor: pointer;">Profile</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="create" class="nav-link" style="cursor: pointer;">Profile</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item" [class.hide]="!login">
           <app-send-info-box [title]="title" [type]="type" [class]="class" [placeholder]="placeholder"
              [typeButtonSend]="typeButtonSend" [classButtonSend]="classButtonSend" [nameButtonSend]="nameButtonSend" 
              [typeButtonCancel]="typeButtonCancel" [classButtonCancel]="classButtonCancel" [nameButtonCancel]="nameButtonCancel"
-             >
+             (event)="emitInfo($event)">
           </app-send-info-box>
         </li>
       </div>

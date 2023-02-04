@@ -7,14 +7,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form onsubmit="">
           <div class="mb-3">
-            <app-input [type]="type" [class]="class" [placeholder]="placeholder"></app-input>
+            <!-- <app-input [type]="type" [class]="class" [placeholder]="placeholder" #newItem></app-input> -->
+            <input type="{{type}}" class="{{class}}" #newItem >
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <app-button [typeButton]="typeButtonSend" [classButton]="classButtonSend" [nameButton]="nameButtonSend"></app-button>
+        <!-- <button type="{{typeButtonSend}}" class="{{classButtonSend}}" name="{{nameButtonSend}}" (event)="sendInfo(newItem.value)" (click)="sendInfo(newItem.value)"></button> -->
+        <app-button [typeButton]="typeButtonSend" [classButton]="classButtonSend" [nameButton]="nameButtonSend" (event)="sendInfo(newItem.value)"></app-button>
         <app-button [typeButton]="typeButtonCancel" [classButton]="classButtonCancel" [nameButton]="nameButtonCancel" data-bs-dismiss="modal"></app-button>
       </div>
     </div>
