@@ -9,13 +9,13 @@
       <div class="modal-body">
         <form onsubmit="">
           <div class="mb-3">
-            <!-- <app-input [type]="type" [class]="class" [placeholder]="placeholder" #newItem></app-input> -->
-            <input type="{{type}}" class="{{class}}" #newItem >
+            <input type="{{type}}" class="{{class}}" [placeholder]="placeholder" #newItem >
           </div>
         </form>
+        <span [class.hide]="!alert" class="text-danger">{{alertMessage}}</span>
+        <span [class.hide]="!success" class="text-success">{{successMessage}}</span>
       </div>
       <div class="modal-footer">
-        <!-- <button type="{{typeButtonSend}}" class="{{classButtonSend}}" name="{{nameButtonSend}}" (event)="sendInfo(newItem.value)" (click)="sendInfo(newItem.value)"></button> -->
         <app-button [typeButton]="typeButtonSend" [classButton]="classButtonSend" [nameButton]="nameButtonSend" (event)="sendInfo(newItem.value)"></app-button>
         <app-button [typeButton]="typeButtonCancel" [classButton]="classButtonCancel" [nameButton]="nameButtonCancel" data-bs-dismiss="modal"></app-button>
       </div>

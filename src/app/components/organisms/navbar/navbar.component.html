@@ -10,7 +10,7 @@
         <li class="nav-item">
           <a class="nav-link" [class.hide]="login" style="cursor: pointer;" (click)="account()">login</a>
         </li>
-        <li class="nav-item"[class.hide]="!login">
+        <li class="nav-item" [class.hide]="!login">
           <a class="nav-link text-danger" style="cursor: pointer;" (click)="logout()">Logout</a>
         </li>
         <li class="nav-item">
@@ -20,7 +20,7 @@
           <app-send-info-box [title]="title" [type]="type" [class]="class" [placeholder]="placeholder"
              [typeButtonSend]="typeButtonSend" [classButtonSend]="classButtonSend" [nameButtonSend]="nameButtonSend" 
              [typeButtonCancel]="typeButtonCancel" [classButtonCancel]="classButtonCancel" [nameButtonCancel]="nameButtonCancel"
-             (event)="emitInfo($event)">
+             (event)="emitInfo($event)" [alert]="alert" [success]="success" [alertMessage]="alertMessage" [successMessage]="successMessage">
           </app-send-info-box>
         </li>
       </div>

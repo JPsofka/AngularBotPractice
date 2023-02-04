@@ -32,6 +32,14 @@ export class SendInfoBoxComponent implements OnInit {
   classButtonCancel:string=""
   @Input()
   nameButtonCancel:string=""
+  @Input()
+  alert!:boolean
+  @Input()
+  success!:boolean
+  @Input()
+  alertMessage:string=""
+  @Input()
+  successMessage:string=""
   @Output()
   event = new EventEmitter<string>()
   constructor() { }

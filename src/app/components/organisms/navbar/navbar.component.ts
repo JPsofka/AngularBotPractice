@@ -19,6 +19,10 @@ export class NavbarComponent implements OnInit {
   typeButtonCancel: string = "button"
   classButtonCancel: string = "btn btn-secondary"
   nameButtonCancel: string = "Cancel"
+  alert:boolean = false
+  success:boolean = false
+  alertMessage:string=""
+  successMessage:string="Deposit completed"
   @Input()
   login: boolean = false
   @Input()
@@ -41,29 +45,37 @@ export class NavbarComponent implements OnInit {
   }
 
   emitInfo(item: string) {
+    this.alert = false
+    this.success = false
     let user:User = this.currentUser 
     if (user !== null && user !== undefined) {
       if (user.dateOfLastDeposit !== undefined) {
         let dateNow = Date.now()
         console.log(user.dateOfLastDeposit)
+        //86400000 time of 24 hours in ms
         if (dateNow >= (user.dateOfLastDeposit + 86400000)) {
-          console.log("if por fecha")
           user.cash = +item
           user.dateOfLastDeposit = new Date().getTime()
           this.userService.updateUser(user.uid, user)
+          this.success = true
         }
-        console.log("segundo if fuera")
         if ((user.cash + (+item)) <= 200) {
-          console.log("segundo if dentro")
           user.cash = user.cash + (+item)
           user.dateOfLastDeposit = new Date().getTime()
           this.userService.updateUser(user.uid, user)
+          this.success = true
+        }
+        if(!(dateNow >= (user.dateOfLastDeposit + 86400000)) && !((user.cash + (+item)) <= 200)){
+          let timeToBeAvailable = parseInt((((user.dateOfLastDeposit + 86400000) - dateNow) / (1000 * 60 * 60)).toString())
+          this.alert = true
+          this.alertMessage = `You can not able to deposit this amount, please try it in ${timeToBeAvailable} hours` 
         }
 
       } else {
         user.cash = +item
         user.dateOfLastDeposit = new Date().getTime()
         this.userService.updateUser(this.currentUser.uid, this.currentUser)
+        this.success = true
       }
     }
   }
