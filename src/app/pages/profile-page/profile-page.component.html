@@ -1,10 +1,10 @@
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
-<p style="color: white;">profile-page works!</p>
+<div class="container-fluid py-5">
+    <div class="container-cards">
+        <app-pokemon-card *ngFor="let pokemon of currentUser.pokemons | filter:term" [srcImg]="pokemon.image"
+            [altImg]="pokemon.name" [cardTitle]="pokemon.name" [typeButtonBuy]="typeButtonSend"
+            [classButtonBuy]="classButtonSend" [nameButtonBuy]="nameButtonSend" [name]="pokemon.name"
+            [height]="pokemon.height" [weight]="pokemon.weight" [price]="pokemon.price" [abilities]="pokemon.abilities"
+            [isPorfile]="!isProfile"
+            ></app-pokemon-card>
+    </div>
+</div>

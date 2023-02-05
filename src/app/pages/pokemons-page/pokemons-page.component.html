@@ -1,13 +1,15 @@
 <div class="container-fluid py-5">
-    <app-info-user-box [class.hide]="!login" [src]="currentUser.photoURL!" [messageInfoUserName]="messageInfoUserName" [messageInfoUserCash]="messageInfoUserCash  "></app-info-user-box>
+    <app-info-user-box [class.hide]="!login" [src]="currentUser.photoURL!" [messageInfoUserName]="messageInfoUserName"
+        [messageInfoUserCash]="messageInfoUserCash  "></app-info-user-box>
     <div class="search">
-        <app-input [type]="typeInput" [class]="classInput" [placeholder]="placeholderInput" name="term" ngDefaultControl [(ngModel)]="term"></app-input>
+        <app-input [type]="typeInput" [class]="classInput" [placeholder]="placeholderInput" name="term" ngDefaultControl
+            [(ngModel)]="term"></app-input>
     </div>
-<div class="container-cards">
-    <app-pokemon-card *ngFor="let pokemon of pokemonList | filter:term" [srcImg]="pokemon.image" 
-    [altImg]="pokemon.name" [cardTitle]="pokemon.name" [typeButtonBuy]="typeButtonBuy" [classButtonBuy]="classButtonBuy"
-    [nameButtonBuy]="nameButtonBuy" [name]="pokemon.name" [height]="pokemon.height" [weight]="pokemon.weight"
-    [price]="pokemon.price" [abilities]="pokemon.abilities" [quantity]="pokemon.quantity"
-    ></app-pokemon-card>
-</div>
+    <div class="container-cards">
+        <app-pokemon-card *ngFor="let pokemon of pokemonList | filter:term" [srcImg]="pokemon.image"
+            [altImg]="pokemon.name" [cardTitle]="pokemon.name" [typeButtonBuy]="typeButtonBuy"
+            [classButtonBuy]="classButtonBuy" [nameButtonBuy]="nameButtonBuy" [name]="pokemon.name"
+            [height]="pokemon.height" [weight]="pokemon.weight" [price]="pokemon.price" [abilities]="pokemon.abilities"
+            [quantity]="pokemon.quantity" [isPorfile]="!isProfile" (event)="buy(pokemon.id)"></app-pokemon-card>
+    </div>
 </div>

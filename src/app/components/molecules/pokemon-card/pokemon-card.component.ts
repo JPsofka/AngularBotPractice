@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -31,9 +31,18 @@ export class PokemonCardComponent implements OnInit {
   abilities:string[]=["s","s"]
   @Input()
   quantity:number=0
+  @Input()
+  isPorfile:boolean = false
+  @Output()
+  event = new EventEmitter<string>()
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  send(){
+    this.event.emit("clic")
   }
 
 }

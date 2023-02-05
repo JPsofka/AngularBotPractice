@@ -16,3 +16,10 @@
 .hide {
     display: none;
 }
+
+@media (max-width: 600px) {
+    .container-cards{
+        display: flex;
+        flex-direction: column;
+    }
+  }
